@@ -1,0 +1,13 @@
+
+<div th:fragment="_card" class="col" th:each="videojuego : ${videojuegos}">
+<div class="card h-100 border-dark mb-3 rounded-3" >
+  <img th:src="${videojuego.imagen}" class="card-img-top rounded-3" style="max-height: 38vh;" alt="imagen videojuego">
+  <div class="card-body">
+    <h5 class="card-title" th:text="${videojuego.titulo}">Card title</h5>
+    <p class="card-text">Precio : <span th:text="${videojuego.precio}"></span></p>
+  </div>
+    <div class="card-body">
+      <a th:href="@{detalle/{id}(id=${videojuego.id})}">Ver detalle</a>
+    </div>
+</div>
+</div>
