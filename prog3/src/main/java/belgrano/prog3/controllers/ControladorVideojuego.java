@@ -29,6 +29,7 @@ public class ControladorVideojuego {
     private ServicioCategoria servicioCategoria;
     @Autowired
     private ServicioEstudio servicioEstudio;
+
     @GetMapping(value = "/inicio")
     public String inicio(Model model){
         try {

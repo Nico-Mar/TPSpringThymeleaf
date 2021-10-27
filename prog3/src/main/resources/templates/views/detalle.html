@@ -12,13 +12,26 @@
 <div class="container">
     <div class="row mt-5" th:object="${videojuego}">
         <div class="col-4">
-            <img th:src="*{imagen}" alt="" class="img-fluid">
+            <img th:src="@{/imagenes/}+${videojuego.imagen}" alt="imagen videojuego" class="img-fluid">
         </div>
         <div class="col-8">
             <div class="card">
-                <p th:text="*{titulo}"></p>
+                <h5 th:text="*{titulo}"></h5>
+                <p class="card-text">Precio : <span th:text="*{precio}">1</span></p>
+                <p class="card-text" th:if="*{stock}">
+                    Cantidad: <span th:text="*{stock}"></span>
+                </p>
+                <p class="card-text" th:unless="*{stock}">
+                    <span class="text-danger">No hay stock</span>
+                </p>
             </div>
-
+            <hr>
+            <div class="card-body">
+                <p class="card-text" th:text="*{descripcion}"></p>
+            </div>
+        </div>
+        <div class="col-12 mt-5">
+            <a th:href="@{/inicio}" class="btn btn-outline-dark">Volver</a>
         </div>
     </div>
 </div>
